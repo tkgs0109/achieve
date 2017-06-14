@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  pool: 5
+development:
+  <<: *default
+  database: achieve_development
+test:
+  <<: *default
+  database: achieve_test
+production:
+  <<: *default
+  database: achieve_production
+  username: achieve
+  password: <%= ENV['ACHIEVE_DATABASE_PASSWORD'] %>
